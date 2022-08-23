@@ -7,6 +7,8 @@ export class AppService {
     const abc
      = 5;
     console.log(abc)
+    console.log('testtestetst' +
+        'steststestestest');
     return 'Hello World!';
   }
 }
