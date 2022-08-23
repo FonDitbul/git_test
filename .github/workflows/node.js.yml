@@ -3,9 +3,7 @@
 
 name: Node.js CI
 
-defaults:
-  run:
-    working-directory: "./nest-test"
+
 on:
   push:
     branches: [ "main" ]
@@ -15,6 +13,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "./nest-test"
 
     strategy:
       matrix:
@@ -28,6 +29,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: './server/package-lock.json'
     - run: npm ci
     - name: lint
       run: npm run lint 
