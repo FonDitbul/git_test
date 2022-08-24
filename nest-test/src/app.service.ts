@@ -6,8 +6,10 @@ export class AppService {
     console.log('test');
     console.log('test2');
     const abc = 55555;
-    console.log(abc);
-    console.log('tesadssddsadsttestetst' + 'sdddtesfsafsafsatstesfsafaffasafstestest');
+    console.log(abc)
+    console.log('te' +
+			'sadssddsadsttestetst' + 'sdddtesfsafsafsatstesfsafaffasafstestes' +
+			't');
     return 'Hello World!';
   }
 }
