@@ -15,4 +15,10 @@ export class AppController {
     console.log('hello');
     return this.appService.getHello();
   }
+
+  @Post('22222')
+  createHello22222(): string {
+    console.log('hello');
+    return this.appService.getHello();
+  }
 }
