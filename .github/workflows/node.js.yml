@@ -35,3 +35,9 @@ jobs:
       run: npm run lint 
     - run: npm run build --if-present
     - run: npm test
+    - name: test coverage blocking
+      uses: anuraag016/Jest-Coverage-Diff@V1.4
+      with:
+        fullCoverageDiff: false
+        runCommand: "npx jest --collectCoverageFrom='[\"src/**/*.{js,jsx,ts,tsx}\"]' --coverage --collectCoverage=true --coverageDirectory='./' --coverageReporters='json-summary' --forceExit --detectOpenHandles test/.*test.*"
+        delta: 0.8
