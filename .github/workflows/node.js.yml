@@ -31,9 +31,13 @@ jobs:
         cache: 'npm'
         cache-dependency-path:  '**/package-lock.json'
     - run: npm ci
-    - name: lint 적용
-      run: npm run lint
-    - name: build
-      run: npm run build
-    - name: 테스트
-      run: npm run test
+    - name: lint
+      run: npm run lint 
+    - run: npm run build --if-present
+    - run: npm test
+    - name: test coverage blocking
+      uses: anuraag016/Jest-Coverage-Diff@V1.4
+      with:
+        fullCoverageDiff: false
+        runCommand: "npx jest --collectCoverageFrom='[\"src/**/*.{js,jsx,ts,tsx}\"]' --coverage --collectCoverage=true --coverageDirectory='./' --coverageReporters='json-summary' --forceExit --detectOpenHandles test/.*test.*"
+        delta: 0.8
